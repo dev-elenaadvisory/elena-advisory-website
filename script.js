@@ -1,4 +1,4 @@
-﻿const cursor = document.getElementById('cursor');
+const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
 document.addEventListener('mousemove', e => {
   cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
@@ -49,3 +49,59 @@ function switchQuote(idx) {
 }
 document.querySelectorAll('.t-dot').forEach(dot => dot.addEventListener('click', () => switchQuote(+dot.dataset.idx)));
 setInterval(() => switchQuote((current + 1) % quotes.length), 7000);
+
+/* ── INQUIRY FORM ─────────────────────────────────── */
+const gradeSelect    = document.getElementById('gradeSelect');
+const gradeOtherWrap = document.getElementById('gradeOtherWrap');
+const gradeOther     = document.getElementById('gradeOther');
+
+if (gradeSelect) {
+  gradeSelect.addEventListener('change', () => {
+    const isOther = gradeSelect.value === 'Other';
+    gradeOtherWrap.style.display = isOther ? 'block' : 'none';
+    gradeOther.required = isOther;
+    if (!isOther) gradeOther.value = '';
+  });
+}
+
+const inquiryForm  = document.getElementById('inquiryForm');
+const formSuccess  = document.getElementById('formSuccess');
+const formError    = document.getElementById('formError');
+const submitBtn    = document.getElementById('submitBtn');
+
+if (inquiryForm) {
+  inquiryForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Button loading state
+    submitBtn.disabled = true;
+    submitBtn.querySelector('.btn-text').textContent = 'Sending…';
+    formSuccess.style.display = 'none';
+    formError.style.display   = 'none';
+
+    try {
+      const data = new FormData(inquiryForm);
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      });
+      const json = await res.json();
+
+      if (json.success) {
+        // Hide form fields, show success
+        inquiryForm.querySelectorAll('.form-field, .form-submit-wrap').forEach(el => {
+          el.style.display = 'none';
+        });
+        formSuccess.style.display = 'block';
+        inquiryForm.reset();
+        gradeOtherWrap.style.display = 'none';
+      } else {
+        throw new Error(json.message || 'Submission failed');
+      }
+    } catch (err) {
+      formError.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.querySelector('.btn-text').textContent = 'Submit Application';
+    }
+  });
+}

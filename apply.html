@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Apply for admission to Elena Advisory — a private counsel for international students building long-term careers in the USA.">
+  <title>Apply for Admission | Elena Advisory</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Apply for Admission | Elena Advisory">
+  <meta property="og:description"
+    content="Submit your inquiry to Elena Advisory. Every application is read personally.">
+  <meta property="og:type" content="website">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Elena Advisory",
+    "description": "Advisory services to students from around the world planning to study in the USA.",
+    "url": "https://elenaadvisory.example.com"
+  }
+  </script>
+
+  <style>
+    /* ── Page-specific overrides ── */
+
+    /* Page Hero — full-width dark banner replacing the home hero */
+    .page-hero {
+      position: relative;
+      min-height: 52vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 40%, rgba(34, 72, 168, .22) 0%, transparent 65%),
+        linear-gradient(150deg, var(--blue-ink) 0%, var(--blue-night) 55%, var(--blue-deep) 100%);
+    }
+
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255, 255, 255, .045) 1px, transparent 1px);
+      background-size: 44px 44px;
+      pointer-events: none;
+    }
+
+    .page-hero-columns {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 38%;
+      pointer-events: none;
+      opacity: .06;
+    }
+
+    .page-hero-columns svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 10;
+      padding: 140px 64px 72px;
+      width: 100%;
+    }
+
+    .page-hero-eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: .55em;
+      color: var(--gold);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 1.2s ease forwards .6s;
+    }
+
+    .page-hero-eyebrow::before {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+      opacity: .6;
+    }
+
+    .page-hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 6.5vw, 90px);
+      font-weight: 300;
+      line-height: .96;
+      color: var(--white-pure);
+      opacity: 0;
+      animation: fadeUp 1.3s ease forwards .8s;
+    }
+
+    .page-hero-title em {
+      font-style: italic;
+      color: var(--gold-pale);
+    }
+
+    .page-hero-sub {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: clamp(16px, 1.8vw, 20px);
+      color: var(--blue-mist);
+      line-height: 1.65;
+      max-width: 420px;
+      margin-top: 26px;
+      opacity: 0;
+      animation: fadeUp 1.3s ease forwards 1s;
+    }
+
+    .page-hero-rule {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196, 146, 42, .25), transparent);
+    }
+
+    /* Override inquiry section for white-marble background */
+    .section-inquiry {
+      background: var(--white-marble);
+    }
+
+    /* Ghost watermark — match testimonials subtle blue tint */
+    .section-inquiry .inquiry-bg-text {
+      color: rgba(26, 54, 128, .04);
+    }
+
+    /* Heading & subtext */
+    .section-inquiry .inquiry-heading {
+      color: var(--blue-ink);
+    }
+
+    .section-inquiry .inquiry-heading em {
+      color: var(--blue-royal);
+    }
+
+    .section-inquiry .inquiry-sub {
+      color: #3a4060;
+    }
+
+    /* Radio buttons */
+    .section-inquiry .radio-custom {
+      background: rgba(255, 255, 255, .85);
+      border-color: rgba(196, 146, 42, .45);
+    }
+
+    .section-inquiry .radio-text {
+      color: var(--blue-night);
+    }
+
+    .section-inquiry .radio-option:hover .radio-text {
+      color: var(--blue-ink);
+    }
+
+    /* Select dropdown */
+    .section-inquiry .select-wrap select {
+      background: transparent;
+      color: var(--blue-night);
+      border-bottom-color: rgba(196, 146, 42, .35);
+    }
+
+    .section-inquiry .select-wrap select:focus {
+      color: var(--blue-ink);
+    }
+
+    /* Text inputs & textarea */
+    .section-inquiry .form-input,
+    .section-inquiry .form-textarea {
+      color: var(--blue-night);
+      border-bottom-color: rgba(196, 146, 42, .35);
+    }
+
+    .section-inquiry .form-input::placeholder,
+    .section-inquiry .form-textarea::placeholder {
+      color: rgba(26, 54, 128, .28);
+    }
+
+    .section-inquiry .form-input:focus,
+    .section-inquiry .form-textarea:focus {
+      color: var(--blue-ink);
+    }
+
+    /* Form note */
+    .section-inquiry .form-note {
+      color: rgba(26, 54, 128, .32);
+    }
+
+    /* Success state */
+    .section-inquiry .form-success {
+      border-color: rgba(196, 146, 42, .25);
+    }
+
+    .section-inquiry .success-title {
+      color: var(--blue-ink);
+    }
+
+    .section-inquiry .success-sub {
+      color: #3a4060;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Reusable Greek key meander symbol -->
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="mk" viewBox="0 0 120 20" preserveAspectRatio="xMidYMid slice">
+      <g fill="none" stroke="#c4922a" stroke-width="1.5" opacity="0.5" stroke-linecap="square">
+        <polyline points="0,10 4,10 4,4 10,4 10,16 16,16 16,4 20,4 20,10" />
+        <polyline points="20,10 24,10 24,4 30,4 30,16 36,16 36,4 40,4 40,10" />
+        <polyline points="40,10 44,10 44,4 50,4 50,16 56,16 56,4 60,4 60,10" />
+        <polyline points="60,10 64,10 64,4 70,4 70,16 76,16 76,4 80,4 80,10" />
+        <polyline points="80,10 84,10 84,4 90,4 90,16 96,16 96,4 100,4 100,10" />
+        <polyline points="100,10 104,10 104,4 110,4 110,16 116,16 116,4 120,4" />
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo-wrap">
+      <a href="index.html" style="text-decoration:none;">
+        <div class="nav-logo">Elena Advisory</div>
+        <div class="nav-tagline">International Career &amp; Immigration Strategy</div>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html#program">The Program</a></li>
+      <li><a href="index.html#results">Results</a></li>
+    </ul>
+    <a href="apply.html" class="nav-cta" aria-current="page">Apply for Admission</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+
+    <!-- Column silhouettes -->
+    <div class="page-hero-columns">
+      <svg viewBox="0 0 500 800" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <rect x="60" y="100" width="48" height="580" fill="white" />
+        <rect x="52" y="90" width="64" height="16" fill="white" />
+        <rect x="44" y="676" width="80" height="14" fill="white" />
+        <line x1="76" y1="100" x2="76" y2="680" stroke="#000" stroke-width="3" opacity="0.15" />
+        <line x1="88" y1="100" x2="88" y2="680" stroke="#000" stroke-width="3" opacity="0.15" />
+        <line x1="100" y1="100" x2="100" y2="680" stroke="#000" stroke-width="3" opacity="0.15" />
+        <rect x="200" y="100" width="48" height="580" fill="white" />
+        <rect x="192" y="90" width="64" height="16" fill="white" />
+        <rect x="184" y="676" width="80" height="14" fill="white" />
+        <line x1="216" y1="100" x2="216" y2="680" stroke="#000" stroke-width="3" opacity="0.15" />
+        <line x1="228" y1="100" x2="228" y2="680" stroke="#000" stroke-width="3" opacity="0.15" />
+        <line x1="240" y1="100" x2="240" y2="680" stroke="#000" stroke-width="3" opacity="0.15" />
+        <rect x="340" y="100" width="48" height="580" fill="white" />
+        <rect x="332" y="90" width="64" height="16" fill="white" />
+        <rect x="324" y="676" width="80" height="14" fill="white" />
+        <line x1="356" y1="100" x2="356" y2="680" stroke="#000" stroke-width="3" opacity="0.15" />
+        <line x1="368" y1="100" x2="368" y2="680" stroke="#000" stroke-width="3" opacity="0.15" />
+        <line x1="380" y1="100" x2="380" y2="680" stroke="#000" stroke-width="3" opacity="0.15" />
+        <rect x="30" y="70" width="440" height="26" fill="white" opacity="0.9" />
+        <rect x="20" y="56" width="460" height="18" fill="white" opacity="0.6" />
+        <polyline points="20,56 250,10 480,56" stroke="white" stroke-width="2" fill="none" opacity="0.4" />
+        <rect x="20" y="690" width="460" height="10" fill="white" opacity="0.5" />
+        <rect x="10" y="698" width="480" height="8" fill="white" opacity="0.3" />
+      </svg>
+    </div>
+
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">By Invitation · Select Cohort Only</div>
+      <h1 class="page-hero-title">Apply for<br><em>Admission</em></h1>
+      <p class="page-hero-sub">Every application is read personally. We respond to every inquiry — because every inquiry
+        matters.</p>
+    </div>
+
+    <div class="page-hero-rule"></div>
+  </section>
+
+  <!-- MEANDER DIVIDER -->
+  <div class="meander-strip" style="background:var(--blue-ink);">
+    <svg viewBox="0 0 1440 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1440" height="20" fill="#080f22" />
+      <use href="#mk" x="0" y="0" width="120" height="20" />
+      <use href="#mk" x="120" y="0" width="120" height="20" />
+      <use href="#mk" x="240" y="0" width="120" height="20" />
+      <use href="#mk" x="360" y="0" width="120" height="20" />
+      <use href="#mk" x="480" y="0" width="120" height="20" />
+      <use href="#mk" x="600" y="0" width="120" height="20" />
+      <use href="#mk" x="720" y="0" width="120" height="20" />
+      <use href="#mk" x="840" y="0" width="120" height="20" />
+      <use href="#mk" x="960" y="0" width="120" height="20" />
+      <use href="#mk" x="1080" y="0" width="120" height="20" />
+      <use href="#mk" x="1200" y="0" width="120" height="20" />
+      <use href="#mk" x="1320" y="0" width="120" height="20" />
+    </svg>
+  </div>
+
+  <!-- INQUIRY FORM -->
+  <section id="inquiry" class="section-inquiry">
+    <div class="inquiry-bg-text">Apply</div>
+
+    <div class="inquiry-inner">
+      <div class="inquiry-header reveal">
+        <div class="section-label" style="justify-content:center;color:var(--gold);">Request Consideration</div>
+        <h2 class="inquiry-heading">Tell us <em>about</em><br>yourself</h2>
+        <p class="inquiry-sub">Fill out the form below and a member of our team will be in touch. We accept only 12
+          mentees per year — every answer you provide helps us understand whether this program is the right fit for you.
+        </p>
+      </div>
+
+      <form id="inquiryForm" class="inquiry-form reveal reveal-delay-1" action="https://api.web3forms.com/submit"
+        method="POST">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="New Inquiry — Elena Advisory">
+        <input type="hidden" name="from_name" value="Elena Advisory Website">
+        <input type="checkbox" name="botcheck" style="display:none;">
+
+        <!-- Q1: International Student -->
+        <div class="form-field reveal">
+          <label class="field-label">Are you an international student?<span class="required">*</span></label>
+          <div class="radio-group" role="radiogroup" aria-label="Are you an international student?">
+            <label class="radio-option" id="radio-yes">
+              <input type="radio" name="international_student" value="Yes" required>
+              <span class="radio-custom"></span>
+              <span class="radio-text">Yes</span>
+            </label>
+            <label class="radio-option" id="radio-no">
+              <input type="radio" name="international_student" value="No" required>
+              <span class="radio-custom"></span>
+              <span class="radio-text">No</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q2: Grade -->
+        <div class="form-field reveal reveal-delay-1">
+          <label class="field-label" for="gradeSelect">What is your grade?<span class="required">*</span></label>
+          <div class="select-wrap">
+            <select id="gradeSelect" name="grade" required>
+              <option value="" disabled selected>Select your grade</option>
+              <option value="Freshman">Freshman</option>
+              <option value="Sophomore">Sophomore</option>
+              <option value="Junior">Junior</option>
+              <option value="Senior">Senior</option>
+              <option value="Other">Other</option>
+            </select>
+            <span class="select-arrow">↓</span>
+          </div>
+          <div class="grade-other-wrap" id="gradeOtherWrap" style="display:none;">
+            <input type="text" id="gradeOther" name="grade_other" class="form-input"
+              placeholder="Please specify your grade">
+          </div>
+        </div>
+
+        <!-- Q3: Major -->
+        <div class="form-field reveal reveal-delay-2">
+          <label class="field-label" for="majorInput">What is the area of your major?<span
+              class="required">*</span></label>
+          <input type="text" id="majorInput" name="major" class="form-input"
+            placeholder="e.g. Computer Science, Business, Engineering…" required>
+        </div>
+
+        <!-- Q4: Challenge -->
+        <div class="form-field reveal reveal-delay-3">
+          <label class="field-label" for="challengeInput">What specific area(s) are you currently facing the biggest
+            challenge in when it comes to finding a job?<span class="required">*</span></label>
+          <textarea id="challengeInput" name="challenge" class="form-textarea" rows="5"
+            placeholder="Describe the challenges you're facing…" required></textarea>
+        </div>
+
+        <!-- Q5: Contact -->
+        <div class="form-field reveal reveal-delay-4">
+          <label class="field-label" for="contactInput">What is the best way to contact you? Please share your contact
+            information.<span class="required">*</span></label>
+          <input type="text" id="contactInput" name="contact_info" class="form-input"
+            placeholder="Email, phone, LinkedIn — whatever you prefer" required>
+        </div>
+
+        <div class="form-submit-wrap reveal reveal-delay-4">
+          <button type="submit" class="btn-form-submit" id="submitBtn">
+            <span class="btn-text">Submit Application</span>
+            <span class="btn-arrow">→</span>
+          </button>
+          <p class="form-note">Applications are reviewed individually · Limited to 12 mentees per year</p>
+        </div>
+
+        <div id="formSuccess" class="form-success" style="display:none;">
+          <div class="success-icon">✦</div>
+          <p class="success-title">Your inquiry has been received.</p>
+          <p class="success-sub">We review every application personally. You will hear from us shortly.</p>
+        </div>
+
+        <div id="formError" class="form-error" style="display:none;">
+          <p>Something went wrong. Please try again or contact us directly.</p>
+        </div>
+      </form>
+    </div>
+
+    <div class="meander-strip" style="background:var(--blue-ink);">
+      <svg viewBox="0 0 1440 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1440" height="20" fill="#080f22" />
+        <use href="#mk" x="0" y="0" width="120" height="20" />
+        <use href="#mk" x="120" y="0" width="120" height="20" />
+        <use href="#mk" x="240" y="0" width="120" height="20" />
+        <use href="#mk" x="360" y="0" width="120" height="20" />
+        <use href="#mk" x="480" y="0" width="120" height="20" />
+        <use href="#mk" x="600" y="0" width="120" height="20" />
+        <use href="#mk" x="720" y="0" width="120" height="20" />
+        <use href="#mk" x="840" y="0" width="120" height="20" />
+        <use href="#mk" x="960" y="0" width="120" height="20" />
+        <use href="#mk" x="1080" y="0" width="120" height="20" />
+        <use href="#mk" x="1200" y="0" width="120" height="20" />
+        <use href="#mk" x="1320" y="0" width="120" height="20" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">© 2026 Elena Advisory · All rights reserved</div>
+    <div class="footer-logo-wrap">
+      <div class="footer-logo">Elena Advisory</div>
+      <div class="footer-logo-sub">International Career &amp; Immigration Strategy</div>
+    </div>
+    <div class="footer-right">
+      <a href="#">Privacy</a><a href="#">Terms</a><a href="apply.html">Apply</a><a href="#">Press</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js" defer></script>
+</body>
+
+</html>
