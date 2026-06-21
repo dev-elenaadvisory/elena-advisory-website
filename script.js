@@ -26,9 +26,9 @@ let t = 0;
 })();
 
 const quotes = [
-  { text: "I had spoken to recruiters, attended workshops, and read every article I could find. None of it gave me what Elena gave me in the first session €” a clear picture of exactly where I stood and precisely what to do next.", author: "Priya S.", origin: "Computer Science · University of Michigan · Now at Google" },
-  { text: "Most advisors tell you what is possible. Elena told me what was optimal €” and the difference between those two things is enormous when your visa clock is ticking.", author: "Wei L.", origin: "Finance · Columbia University · Now at Goldman Sachs" },
-  { text: "The day I was accepted into the Elena program, I felt €” for the first time €” that my future in this country was a plan, not a hope.", author: "André©s M.", origin: "Engineering · UT Austin · H-1B secured, Green Card in progress" }
+  { text: "I had spoken to recruiters, attended workshops, and read every article I could find. None of it gave me what Elena gave me in the first session — a clear picture of exactly where I stood and precisely what to do next.", author: "Priya S.", origin: "Computer Science · University of Michigan · Now at Google" },
+  { text: "Most advisors tell you what is possible. Elena told me what was optimal — and the difference between those two things is enormous when your visa clock is ticking.", author: "Wei L.", origin: "Finance · Columbia University · Now at Goldman Sachs" },
+  { text: "The day I was accepted into the Elena program, I felt — for the first time — that my future in this country was a plan, not a hope.", author: "Andrés M.", origin: "Engineering · UT Austin · H-1B secured, Green Card in progress" }
 ];
 let current = 0;
 const tText = document.getElementById('testimonialText');

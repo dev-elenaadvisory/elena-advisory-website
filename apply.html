@@ -17,6 +17,9 @@
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
 
+  <!-- Favicon (placeholder) -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +34,7 @@
     "@type": "EducationalOrganization",
     "name": "Elena Advisory",
     "description": "Advisory services to students from around the world planning to study in the USA.",
-    "url": "https://elenaadvisory.example.com"
+    "url": "https://elenaadvisory.com"
   }
   </script>
 
@@ -251,7 +254,7 @@
     </div>
     <ul class="nav-links">
       <li><a href="index.html#program">The Program</a></li>
-      <li><a href="index.html#results">Results</a></li>
+      <li><a href="docs/results.pdf" target="_blank" rel="noopener">Results</a></li>
     </ul>
     <a href="apply.html" class="nav-cta" aria-current="page">Apply for Admission</a>
   </nav>
@@ -399,6 +402,9 @@
             placeholder="Email, phone, LinkedIn — whatever you prefer" required>
         </div>
 
+        <!-- Spam protection: Web3Forms hosted hCaptcha (uses their shared sitekey via data-captcha) -->
+        <div class="h-captcha" data-captcha="true"></div>
+
         <div class="form-submit-wrap reveal reveal-delay-4">
           <button type="submit" class="btn-form-submit" id="submitBtn">
             <span class="btn-text">Submit Application</span>
@@ -446,11 +452,13 @@
       <div class="footer-logo-sub">International Career &amp; Immigration Strategy</div>
     </div>
     <div class="footer-right">
-      <a href="#">Privacy</a><a href="#">Terms</a><a href="apply.html">Apply</a><a href="#">Press</a>
+      <a href="docs/privacy.pdf" target="_blank" rel="noopener">Privacy</a><a href="docs/terms.pdf" target="_blank" rel="noopener">Terms</a><a href="apply.html">Apply</a><a href="docs/press.pdf" target="_blank" rel="noopener">Press</a>
     </div>
   </footer>
 
   <!-- JavaScript -->
+  <!-- Web3Forms client script renders the hCaptcha widget (data-captcha) -->
+  <script src="https://web3forms.com/client/script.js" async defer></script>
   <script src="script.js" defer></script>
 </body>
 
